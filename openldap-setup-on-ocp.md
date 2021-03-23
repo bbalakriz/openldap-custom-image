@@ -1,5 +1,7 @@
 #### To host openldap on OpenShift, create a project and execute 
-```oc new-app openshift/openldap-2441-centos7```
+```
+oc new-app openshift/openldap-2441-centos7
+```
 
 #### Then, go to the newly created openldap pod/container terminal and execute the following commands to create the users and roles
 
