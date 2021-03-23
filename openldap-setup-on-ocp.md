@@ -1,6 +1,7 @@
-To setup a pod with openldap, execute `oc new-app openshift/openldap-2441-centos7` on a project
+### To setup a pod with openldap, create a project and execute 
+```oc new-app openshift/openldap-2441-centos7```
 
-Then, go to the openldap container terminal and execute the following command to create the users and roles
+### Then, go to the newly created openldap container terminal and execute the following commands to create the users and roles
 
 ```
 cd /tmp && vi test.ldif
@@ -9,8 +10,9 @@ cd /tmp && vi test.ldif
 ldapadd -x -h localhost -p 389 -D cn=Manager,dc=example,dc=com -w admin -f test.ldif 
 ```
 
-Check if the users and roles have been created successfully
+### Check if the users and roles have been created successfully on openldap
 
 ```
 ldapsearch -x -LLL -h localhost -p 389 -b dc=example,dc=com 
 ```
+### User the user maintainer which is mapped to the group Maintaners to login to the BC/KIE setup using the kieapp CRD defined [here](https://github.com/bbalakriz/rhpam-openshift/blob/main/kie-app-yaml/kieapp-rhpam-authoring-with-openldap.yaml)
